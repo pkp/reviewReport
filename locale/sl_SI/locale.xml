@@ -25,5 +25,9 @@
 	<message key="plugins.reports.reviews.dateReminded">Datum opominjanja</message>
 	<message key="plugins.reports.reviews.recommendation">Priporočilo</message>
 	<message key="plugins.reports.reviews.comments">Komentarji prispevka</message>
+	<message key="plugins.reports.reviews.dateAcknowledged">Datum potrditve</message>
+	<message key="plugins.reports.reviews.unconsidered">Neupoštevano</message>
+	<message key="plugins.reports.reviews.reviewOverdue">Število dni zamujanja recenzije</message>
+	<message key="plugins.reports.reviews.responseOverdue">Število dni zamujanja potrditve</message>
 </locale>
 
