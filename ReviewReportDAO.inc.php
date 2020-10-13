@@ -83,8 +83,8 @@ class ReviewReportDAO extends DAO {
 			FROM	review_assignments r
 				LEFT JOIN submissions a ON r.submission_id = a.submission_id
 				LEFT JOIN publications p ON a.current_publication_id = p.publication_id
-				LEFT JOIN submission_settings asl ON (a.submission_id = asl.submission_id AND asl.locale = ? AND asl.setting_name = ?)
-				LEFT JOIN submission_settings aspl ON (a.submission_id = aspl.submission_id AND aspl.locale = p.locale AND aspl.setting_name = ?)
+				LEFT JOIN publication_settings asl ON (p.publication_id = asl.publication_id AND asl.locale = ? AND asl.setting_name = ?)
+				LEFT JOIN publication_settings aspl ON (p.publication_id = aspl.publication_id AND aspl.locale = p.locale AND aspl.setting_name = ?)
 				LEFT JOIN users u ON (u.user_id = r.reviewer_id)
 				' . $userDao->getFetchJoins() .'
 				LEFT JOIN user_settings uas ON (u.user_id = uas.user_id AND uas.setting_name = ? AND uas.locale = a.locale)
