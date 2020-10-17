@@ -15,7 +15,6 @@
  */
 
 import('lib.pkp.classes.submission.SubmissionComment');
-import('lib.pkp.classes.db.DBRowIterator');
 
 class ReviewReportDAO extends DAO {
 	/**
@@ -26,38 +25,20 @@ class ReviewReportDAO extends DAO {
 	function getReviewReport($contextId) {
 		$locale = AppLocale::getLocale();
 
-		import('lib.pkp.classes.db.DBRowIterator');
-		$commentsReturner = new DBRowIterator($this->retrieve(
+		$commentsReturner = $this->retrieve(
 			'SELECT	submission_id,
 				comments,
 				author_id
 			FROM	submission_comments
 			WHERE	comment_type = ?',
-			array(
-				COMMENT_TYPE_PEER_REVIEW
-			)
-		));
+			[COMMENT_TYPE_PEER_REVIEW]
+		);
 
 		$userDao = DAORegistry::getDAO('UserDAO');
 		$site = Application::get()->getRequest()->getSite();
 		$sitePrimaryLocale = $site->getPrimaryLocale();
 
-		$params = array_merge(
-			array(
-				$locale, // Submission title
-				'title',
-				'title',
-			),
-			$userDao->getFetchParameters(),
-			array(
-				'affiliation',
-				'affiliation',
-				$sitePrimaryLocale,
-				'orcid',
-				(int) $contextId
-			)
-		);
-		$reviewsReturner = new DBRowIterator($this->retrieve(
+		$reviewsReturner = $this->retrieve(
 			'SELECT	r.stage_id AS stage_id,
 				r.round AS round,
 				COALESCE(asl.setting_value, aspl.setting_value) AS submission,
@@ -92,20 +73,34 @@ class ReviewReportDAO extends DAO {
 				LEFT JOIN user_settings us ON (u.user_id = us.user_id AND us.setting_name = ?)
 			WHERE	 a.context_id = ?
 			ORDER BY submission',
-			$params
-		));
+			array_merge(
+				[
+					$locale, // Submission title
+					'title',
+					'title',
+				],
+				$userDao->getFetchParameters(),
+				[
+					'affiliation',
+					'affiliation',
+					$sitePrimaryLocale,
+					'orcid',
+					(int) $contextId
+				]
+			)
+		);
 
 		import('lib.pkp.classes.user.InterestManager');
 		$interestManager = new InterestManager();
-		$assignedReviewerIds = new DBRowIterator($this->retrieve(
+		$assignedReviewerIds = $this->retrieve(
 			'SELECT	r.reviewer_id
 			FROM	review_assignments r
 				LEFT JOIN submissions a ON r.submission_id = a.submission_id
 			WHERE	 a.context_id = ?
 			ORDER BY r.reviewer_id',
-			array((int) $contextId)
-		));
-		$interests = array();
+			[(int) $contextId]
+		);
+		$interests = [];
 		while ($row = $assignedReviewerIds->next()) {
 			if (!array_key_exists($row['reviewer_id'], $interests)) {
 				$user = $userDao->getById($row['reviewer_id']);
@@ -113,7 +108,7 @@ class ReviewReportDAO extends DAO {
 				if (!empty($reviewerInterests))	$interests[$row['reviewer_id']] = $reviewerInterests;
 			}
 		}
-		return array($commentsReturner, $reviewsReturner, $interests);
+		return [$commentsReturner, $reviewsReturner, $interests];
 	}
 }
 
