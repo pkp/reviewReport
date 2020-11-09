@@ -118,6 +118,10 @@ class ReviewReportPlugin extends ReportPlugin {
 		fprintf($fp, chr(0xEF).chr(0xBB).chr(0xBF));
 		fputcsv($fp, array_values($columns));
 
+		$reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+		$reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+		$reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+
 		while ($row = $reviewsIterator->next()) {
 			if (substr($row['dateresponsedue'], 11) === '00:00:00') {
 				$row['dateresponsedue'] = substr($row['dateresponsedue'], 0, 11) . '23:59:59';
@@ -147,10 +151,44 @@ class ReviewReportPlugin extends ReportPlugin {
 					}
 					break;
 				case 'comments':
+					$reviewAssignment = $reviewAssignmentDao->getById($row['review_id']);
+					$body = '';
+
+					if ($reviewAssignment->getDateCompleted() != null && ($reviewFormId = $reviewAssignment->getReviewFormId())) {
+						$reviewId = $reviewAssignment->getId();
+						$reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId);
+						while ($reviewFormElement = $reviewFormElements->next()) {
+							if (!$reviewFormElement->getIncluded()) continue;
+							$body .= PKPString::stripUnsafeHtml($reviewFormElement->getLocalizedQuestion());
+							$reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewId, $reviewFormElement->getId());
+							if ($reviewFormResponse) {
+								$possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+								if (in_array($reviewFormElement->getElementType(), array(REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES, REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS))) {
+									ksort($possibleResponses);
+									$possibleResponses = array_values($possibleResponses);
+								}
+								if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
+									if ($reviewFormElement->getElementType() == REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
+										$body .= '<ul>';
+										foreach ($reviewFormResponse->getValue() as $value) {
+											$body .= '<li>' . PKPString::stripUnsafeHtml($possibleResponses[$value]) . '</li>';
+										}
+										$body .= '</ul>';
+									} else {
+										$body .= '<blockquote>' . PKPString::stripUnsafeHtml($possibleResponses[$reviewFormResponse->getValue()]) . '</blockquote>';
+									}
+									$body .= '<br>';
+								} else {
+									$body .= '<blockquote>' . nl2br(htmlspecialchars($reviewFormResponse->getValue())) . '</blockquote>';
+								}
+							}
+						}
+					}
+
 					if (isset($comments[$row['submission_id']][$row['reviewer_id']])) {
 						$columns[$index] = $comments[$row['submission_id']][$row['reviewer_id']];
 					} else {
-						$columns[$index] = '';
+						$columns[$index] = $body;
 					}
 					break;
 				case 'interests':

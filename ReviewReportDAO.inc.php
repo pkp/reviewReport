@@ -59,6 +59,7 @@ class ReviewReportDAO extends DAO {
 		);
 		$reviewsReturner = new DBRowIterator($this->retrieve(
 			'SELECT	r.stage_id AS stage_id,
+				r.review_id as review_id,
 				r.round AS round,
 				COALESCE(asl.setting_value, aspl.setting_value) AS submission,
 				a.submission_id AS submission_id,
@@ -116,4 +117,3 @@ class ReviewReportDAO extends DAO {
 		return array($commentsReturner, $reviewsReturner, $interests);
 	}
 }
-
