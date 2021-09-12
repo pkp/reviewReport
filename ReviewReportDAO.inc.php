@@ -18,6 +18,7 @@
 use APP\facades\Repo;
 use PKP\submission\SubmissionComment;
 use PKP\user\InterestManager;
+use PKP\facades\Locale;
 
 class ReviewReportDAO extends DAO
 {
@@ -30,7 +31,7 @@ class ReviewReportDAO extends DAO
      */
     public function getReviewReport($contextId)
     {
-        $locale = AppLocale::getLocale();
+        $locale = Locale::getLocale();
 
         $commentsReturner = $this->retrieve(
             'SELECT	sc.submission_id,

@@ -72,7 +72,6 @@ class ReviewReportPlugin extends ReportPlugin
 
         header('content-type: text/comma-separated-values');
         header('content-disposition: attachment; filename=reviews-' . date('Ymd') . '.csv');
-        AppLocale::requireComponents(LOCALE_COMPONENT_PKP_SUBMISSION);
 
         $reviewReportDao = DAORegistry::getDAO('ReviewReportDAO');
         [$commentsIterator, $reviewsIterator, $interestsArray] = $reviewReportDao->getReviewReport($context->getId());
