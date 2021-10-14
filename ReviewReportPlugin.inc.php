@@ -15,10 +15,12 @@
  * @brief Review report plugin
  */
 
-use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\plugins\ReportPlugin;
-use PKP\config\Config;
+use APP\core\Application;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\plugins\ReportPlugin;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\workflow\WorkflowStageDAO;
 
 class ReviewReportPlugin extends ReportPlugin
 {
@@ -30,11 +32,13 @@ class ReviewReportPlugin extends ReportPlugin
     public function register($category, $path, $mainContextId = null)
     {
         $success = parent::register($category, $path, $mainContextId);
-        if ($success && Config::getVar('general', 'installed')) {
-            $this->import('ReviewReportDAO');
-            $reviewReportDAO = new ReviewReportDAO();
-            DAORegistry::registerDAO('ReviewReportDAO', $reviewReportDAO);
+        if (!Application::isReady()) {
+            return $success;
         }
+
+        $this->import('ReviewReportDAO');
+        $reviewReportDAO = new ReviewReportDAO();
+        DAORegistry::registerDAO('ReviewReportDAO', $reviewReportDAO);
         $this->addLocaleData();
         return $success;
     }
@@ -128,8 +132,11 @@ class ReviewReportPlugin extends ReportPlugin
         fprintf($fp, chr(0xEF) . chr(0xBB) . chr(0xBF));
         fputcsv($fp, array_values($columns));
 
+        /** @var ReviewAssignmentDAO */
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+        /** @var ReviewFormResponseDAO */
         $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+        /** @var ReviewFormElementDAO */
         $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 
         foreach ($reviewsIterator as $row) {
@@ -181,7 +188,7 @@ class ReviewReportPlugin extends ReportPlugin
                                     $possibleResponses = array_values($possibleResponses);
                                 }
                                 if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
-                                    if ($reviewFormElement->getElementType() == $revieFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
+                                    if ($reviewFormElement->getElementType() == $reviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
                                         $body .= '<ul>';
                                         foreach ($reviewFormResponse->getValue() as $value) {
                                             $body .= '<li>' . PKPString::stripUnsafeHtml($possibleResponses[$value]) . '</li>';

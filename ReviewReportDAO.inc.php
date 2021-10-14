@@ -15,17 +15,19 @@
  * @brief Review report DAO
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
+use PKP\db\DAO;
+use PKP\facades\Locale;
 use PKP\submission\SubmissionComment;
 use PKP\user\InterestManager;
-use PKP\facades\Locale;
 
 class ReviewReportDAO extends DAO
 {
     /**
      * Get the review report data.
      *
-     * @param $contextId int Context ID
+     * @param int $contextId Context ID
      *
      * @return array
      */
