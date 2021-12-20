@@ -161,12 +161,8 @@ class ReviewReportPlugin extends ReportPlugin
                 case 'unconsidered':
                     $columns[$index] = __($row->$index ? 'common.yes' : '');
                     break;
-                    case 'recommendation':
-                    if (isset($recommendations[$row->$index])) {
-                        $columns[$index] = (!isset($row->$index)) ? __('common.none') : __($recommendations[$row->$index]);
-                    } else {
-                        $columns[$index] = '';
-                    }
+                case 'recommendation':
+                    $columns[$index] = isset($recommendations[$row->$index]) ? __($recommendations[$row->$index]) : '';
                     break;
                 case 'comments':
                     $reviewAssignment = $reviewAssignmentDao->getById($row->review_id);
@@ -205,22 +201,14 @@ class ReviewReportPlugin extends ReportPlugin
                         }
                     }
 
-                    if (isset($comments[$row->submission_id][$row->reviewer_id])) {
-                        $columns[$index] = $comments[$row->submission_id][$row->reviewer_id];
-                    } else {
-                        $columns[$index] = $body;
-                    }
+                    $columns[$index] = $comments[$row->submission_id][$row->reviewer_id] ?? $body;
                     break;
                 case 'interests':
-                    if (isset($interestsArray[$row->reviewer_id])) {
-                        $columns[$index] = $interestsArray[$row->reviewer_id];
-                    } else {
-                        $columns[$index] = '';
-                    }
+                    $columns[$index] = $interestsArray[$row->reviewer_id] ?? '';
                     break;
                 default:
                     $columns[$index] = $row->$index;
-            }
+                }
             }
             fputcsv($fp, $columns);
         }
