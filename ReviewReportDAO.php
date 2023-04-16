@@ -1,13 +1,14 @@
 <?php
 
 /**
- * @file plugins/reports/reviewReport/ReviewReportDAO.inc.php
+ * @file plugins/reports/reviewReport/ReviewReportDAO.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewReportDAO
+ *
  * @ingroup plugins_reports_review
  *
  * @see ReviewReportPlugin

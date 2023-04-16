@@ -1,13 +1,14 @@
 <?php
 
 /**
- * @file ReviewReportPlugin.inc.php
+ * @file ReviewReportPlugin.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewReportPlugin
+ *
  * @ingroup plugins_reports_review
  *
  * @see ReviewReportDAO
@@ -100,10 +101,10 @@ class ReviewReportPlugin extends ReportPlugin
         ];
 
         $considerations = [
-            ReviewAssignment::REVIEW_ASSIGNMENT_NEW             => 'plugins.reports.reviews.considered.new',
-            ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED      => 'plugins.reports.reviews.considered.considered',
-            ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED    => 'plugins.reports.reviews.considered.unconsidered',
-            ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED    => 'plugins.reports.reviews.considered.reconsidered',
+            ReviewAssignment::REVIEW_ASSIGNMENT_NEW => 'plugins.reports.reviews.considered.new',
+            ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED => 'plugins.reports.reviews.considered.considered',
+            ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED => 'plugins.reports.reviews.considered.unconsidered',
+            ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED => 'plugins.reports.reviews.considered.reconsidered',
         ];
 
         $columns = [
@@ -161,63 +162,63 @@ class ReviewReportPlugin extends ReportPlugin
 
             foreach ($columns as $index => $junk) {
                 switch ($index) {
-                case 'stage_id':
-                    $columns[$index] = __(WorkflowStageDAO::getTranslationKeyFromId($row->$index));
-                    break;
-                case 'declined':
-                case 'cancelled':
-                    $columns[$index] = __($row->$index ? 'common.yes' : 'common.no');
-                    break;
-                case 'considered':
-                    $columns[$index] = isset($considerations[$row->$index]) ? __($considerations[$row->$index]) : '';
-                    break;
-                case 'recommendation':
-                    $columns[$index] = isset($recommendations[$row->$index]) ? __($recommendations[$row->$index]) : '';
-                    break;
-                case 'comments':
-                    $reviewAssignment = $reviewAssignmentDao->getById($row->review_id);
-                    $body = '';
+                    case 'stage_id':
+                        $columns[$index] = __(WorkflowStageDAO::getTranslationKeyFromId($row->$index));
+                        break;
+                    case 'declined':
+                    case 'cancelled':
+                        $columns[$index] = __($row->$index ? 'common.yes' : 'common.no');
+                        break;
+                    case 'considered':
+                        $columns[$index] = isset($considerations[$row->$index]) ? __($considerations[$row->$index]) : '';
+                        break;
+                    case 'recommendation':
+                        $columns[$index] = isset($recommendations[$row->$index]) ? __($recommendations[$row->$index]) : '';
+                        break;
+                    case 'comments':
+                        $reviewAssignment = $reviewAssignmentDao->getById($row->review_id);
+                        $body = '';
 
-                    if ($reviewAssignment->getDateCompleted() != null && ($reviewFormId = $reviewAssignment->getReviewFormId())) {
-                        $reviewId = $reviewAssignment->getId();
-                        $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId);
-                        while ($reviewFormElement = $reviewFormElements->next()) {
-                            if (!$reviewFormElement->getIncluded()) {
-                                continue;
-                            }
-                            $body .= PKPString::stripUnsafeHtml($reviewFormElement->getLocalizedQuestion());
-                            $reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewId, $reviewFormElement->getId());
-                            if ($reviewFormResponse) {
-                                $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
-                                if (in_array($reviewFormElement->getElementType(), [$reviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES, $reviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS])) {
-                                    ksort($possibleResponses);
-                                    $possibleResponses = array_values($possibleResponses);
+                        if ($reviewAssignment->getDateCompleted() != null && ($reviewFormId = $reviewAssignment->getReviewFormId())) {
+                            $reviewId = $reviewAssignment->getId();
+                            $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId);
+                            while ($reviewFormElement = $reviewFormElements->next()) {
+                                if (!$reviewFormElement->getIncluded()) {
+                                    continue;
                                 }
-                                if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
-                                    if ($reviewFormElement->getElementType() == $reviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
-                                        $body .= '<ul>';
-                                        foreach ($reviewFormResponse->getValue() as $value) {
-                                            $body .= '<li>' . PKPString::stripUnsafeHtml($possibleResponses[$value]) . '</li>';
-                                        }
-                                        $body .= '</ul>';
-                                    } else {
-                                        $body .= '<blockquote>' . PKPString::stripUnsafeHtml($possibleResponses[$reviewFormResponse->getValue()]) . '</blockquote>';
+                                $body .= PKPString::stripUnsafeHtml($reviewFormElement->getLocalizedQuestion());
+                                $reviewFormResponse = $reviewFormResponseDao->getReviewFormResponse($reviewId, $reviewFormElement->getId());
+                                if ($reviewFormResponse) {
+                                    $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                                    if (in_array($reviewFormElement->getElementType(), [$reviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES, $reviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS])) {
+                                        ksort($possibleResponses);
+                                        $possibleResponses = array_values($possibleResponses);
                                     }
-                                    $body .= '<br>';
-                                } else {
-                                    $body .= '<blockquote>' . nl2br(htmlspecialchars($reviewFormResponse->getValue())) . '</blockquote>';
+                                    if (in_array($reviewFormElement->getElementType(), $reviewFormElement->getMultipleResponsesElementTypes())) {
+                                        if ($reviewFormElement->getElementType() == $reviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
+                                            $body .= '<ul>';
+                                            foreach ($reviewFormResponse->getValue() as $value) {
+                                                $body .= '<li>' . PKPString::stripUnsafeHtml($possibleResponses[$value]) . '</li>';
+                                            }
+                                            $body .= '</ul>';
+                                        } else {
+                                            $body .= '<blockquote>' . PKPString::stripUnsafeHtml($possibleResponses[$reviewFormResponse->getValue()]) . '</blockquote>';
+                                        }
+                                        $body .= '<br>';
+                                    } else {
+                                        $body .= '<blockquote>' . nl2br(htmlspecialchars($reviewFormResponse->getValue())) . '</blockquote>';
+                                    }
                                 }
                             }
                         }
-                    }
 
-                    $columns[$index] = $comments[$row->submission_id][$row->reviewer_id] ?? $body;
-                    break;
-                case 'interests':
-                    $columns[$index] = $interestsArray[$row->reviewer_id] ?? '';
-                    break;
-                default:
-                    $columns[$index] = $row->$index;
+                        $columns[$index] = $comments[$row->submission_id][$row->reviewer_id] ?? $body;
+                        break;
+                    case 'interests':
+                        $columns[$index] = $interestsArray[$row->reviewer_id] ?? '';
+                        break;
+                    default:
+                        $columns[$index] = $row->$index;
                 }
             }
             fputcsv($fp, $columns);
