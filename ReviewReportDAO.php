@@ -121,7 +121,7 @@ class ReviewReportDAO extends DAO
             [(int) $contextId]
         );
         $interests = [];
-        while ($row = $assignedReviewerIds->next()) {
+        foreach ($assignedReviewerIds as $row) {
             if (!array_key_exists($row['reviewer_id'], $interests)) {
                 $user = Repo::user()->get($row['reviewer_id'], true);
                 $reviewerInterests = $interestManager->getInterestsString($user);
