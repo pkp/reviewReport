@@ -22,7 +22,10 @@ use APP\core\Application;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\plugins\ReportPlugin;
+use PKP\reviewForm\ReviewFormElementDAO;
+use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\workflow\WorkflowStageDAO;
 
 class ReviewReportPlugin extends ReportPlugin
