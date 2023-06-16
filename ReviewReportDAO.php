@@ -122,11 +122,11 @@ class ReviewReportDAO extends DAO
         );
         $interests = [];
         foreach ($assignedReviewerIds as $row) {
-            if (!array_key_exists($row['reviewer_id'], $interests)) {
-                $user = Repo::user()->get($row['reviewer_id'], true);
+            if (!array_key_exists($row->reviewer_id, $interests)) {
+                $user = Repo::user()->get($row->reviewer_id, true);
                 $reviewerInterests = $interestManager->getInterestsString($user);
                 if (!empty($reviewerInterests)) {
-                    $interests[$row['reviewer_id']] = $reviewerInterests;
+                    $interests[$row->reviewer_id] = $reviewerInterests;
                 }
             }
         }
