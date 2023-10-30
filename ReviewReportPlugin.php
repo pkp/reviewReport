@@ -21,6 +21,7 @@ namespace APP\plugins\reports\reviewReport;
 use APP\core\Application;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use APP\facades\Repo;
 use PKP\plugins\ReportPlugin;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
@@ -145,8 +146,6 @@ class ReviewReportPlugin extends ReportPlugin
         fprintf($fp, chr(0xEF) . chr(0xBB) . chr(0xBF));
         fputcsv($fp, array_values($columns));
 
-        /** @var ReviewAssignmentDAO */
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
         /** @var ReviewFormResponseDAO */
         $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
         /** @var ReviewFormElementDAO */
@@ -179,7 +178,7 @@ class ReviewReportPlugin extends ReportPlugin
                         $columns[$index] = isset($recommendations[$row->$index]) ? __($recommendations[$row->$index]) : '';
                         break;
                     case 'comments':
-                        $reviewAssignment = $reviewAssignmentDao->getById($row->review_id);
+                        $reviewAssignment = Repo::reviewAssignment()->get($row->review_id);
                         $body = '';
 
                         if ($reviewAssignment->getDateCompleted() != null && ($reviewFormId = $reviewAssignment->getReviewFormId())) {
