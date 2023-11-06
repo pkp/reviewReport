@@ -177,7 +177,7 @@ class ReviewReportPlugin extends ReportPlugin
                         $columns[$index] = isset($recommendations[$row->$index]) ? __($recommendations[$row->$index]) : '';
                         break;
                     case 'comments':
-                        $reviewAssignment = Repo::reviewAssignment()->get($row->review_id);
+                        $reviewAssignment = Repo::reviewAssignment()->get($row->review_id, $row->submission_id);
                         $body = '';
 
                         if ($reviewAssignment->getDateCompleted() != null && ($reviewFormId = $reviewAssignment->getReviewFormId())) {
