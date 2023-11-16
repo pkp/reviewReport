@@ -24,7 +24,7 @@ msgstr "Hari Tertunggak Respons"
 msgid "plugins.reports.reviews.reviewOverdue"
 msgstr "Ulasan Hari Tertunggak"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Tarikh Diingatkan"
 
 msgid "plugins.reports.reviews.dateCompleted"

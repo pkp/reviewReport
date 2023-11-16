@@ -44,7 +44,7 @@ msgstr "تأريخ الإقرار"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "تأريخ الإكمال"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "تأريخ التذكير"
 
 msgid "plugins.reports.reviews.reviewOverdue"

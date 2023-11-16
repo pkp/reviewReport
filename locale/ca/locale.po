@@ -23,7 +23,7 @@ msgstr "Dies de venciment de la resposta"
 msgid "plugins.reports.reviews.reviewOverdue"
 msgstr "Dies de venciment de la revisió"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Data recordatori"
 
 msgid "plugins.reports.reviews.dateCompleted"

@@ -44,7 +44,7 @@ msgstr "Bestätigungsdatum"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Fertigstellungsdatum"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Erinnerungsdatum"
 
 msgid "plugins.reports.reviews.recommendation"

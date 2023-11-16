@@ -44,7 +44,7 @@ msgstr "Datum toewijzing"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Datum gereed"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Datum herinnering"
 
 msgid "plugins.reports.reviews.reviewOverdue"

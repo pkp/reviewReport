@@ -41,7 +41,7 @@ msgstr "Jóváhagyás dátuma"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Elkészítés dátuma"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Emlékeztetés dátuma"
 
 msgid "plugins.reports.reviews.recommendation"

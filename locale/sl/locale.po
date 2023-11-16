@@ -45,7 +45,7 @@ msgstr "Datum potrditve"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Datum končanja"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Datum opominjanja"
 
 msgid "plugins.reports.reviews.recommendation"
