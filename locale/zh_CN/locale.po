@@ -38,5 +38,5 @@ msgstr "确认日期(Date Confirmed)"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "完成日期(Date Completed)"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "提醒日期(Date Reminded)"

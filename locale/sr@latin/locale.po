@@ -38,5 +38,5 @@ msgstr "Datum potvrde"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Datum završetka"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Datum podsetnika"

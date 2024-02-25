@@ -43,7 +43,7 @@ msgstr "Bekreftet dato"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Fullført dato"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Dato for påminnelse"
 
 msgid "plugins.reports.reviews.comments"

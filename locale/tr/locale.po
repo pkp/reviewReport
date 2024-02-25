@@ -41,7 +41,7 @@ msgstr "Onay Tarihi"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Bitirme Tarihi"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Hatırlatma Tarihi"
 
 msgid "plugins.reports.reviews.comments"

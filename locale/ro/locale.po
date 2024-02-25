@@ -38,5 +38,5 @@ msgstr "Data confirmării"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Data încheierii"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Dată rapel"

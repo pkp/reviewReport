@@ -23,8 +23,17 @@ msgstr "Jour(s) de retard pour donner une réponse"
 msgid "plugins.reports.reviews.reviewOverdue"
 msgstr "Jour(s) de retard pour la remise de l'évaluation"
 
-msgid "plugins.reports.reviews.dateReminded"
-msgstr "Date de rappel"
+msgid "plugins.reports.reviews.dateInviteReminded"
+msgstr "Date de rappel de l'invitation"
+
+msgid "plugins.reports.reviews.countInviteReminder"
+msgstr "Nombre de rappels de l'invitation"
+
+msgid "plugins.reports.reviews.dateSubmitReminded"
+msgstr "Date de rappel de l'évaluation"
+
+msgid "plugins.reports.reviews.countSubmitReminder"
+msgstr "Nombre de rappels de l'évaluation"
 
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Date de complétion"

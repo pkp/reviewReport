@@ -43,7 +43,7 @@ msgstr "Tanggal Dikonfirmasi"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Tanggal Diselesaikan"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Tanggal Diperingatkan"
 
 msgid "plugins.reports.reviews.comments"

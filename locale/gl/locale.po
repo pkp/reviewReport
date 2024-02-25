@@ -23,7 +23,7 @@ msgstr "Días de atraso na revisión"
 msgid "plugins.reports.reviews.responseOverdue"
 msgstr "Días de atraso da resposta"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Data recordatoria"
 
 msgid "plugins.reports.reviews.dateCompleted"

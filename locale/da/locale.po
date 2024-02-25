@@ -44,7 +44,7 @@ msgstr "Bekræftelsesdato"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Færdiggørelsesdato"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Påmindelsesdato"
 
 msgid "plugins.reports.reviews.submissionTitle"

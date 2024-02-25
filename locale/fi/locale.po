@@ -47,7 +47,7 @@ msgstr "Vahvistettu"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Valmis"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Muistutettu"
 
 msgid "plugins.reports.reviews.recommendation"

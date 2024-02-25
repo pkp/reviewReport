@@ -43,7 +43,7 @@ msgstr "Fecha confirmada"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Fecha completada"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Fecha recordatorio"
 
 msgid "plugins.reports.reviews.submissionTitle"

@@ -40,7 +40,7 @@ msgstr "Data de Confirmação de disponibilidade"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Data de Conclusão"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Data do Lembrete"
 
 msgid "plugins.reports.reviews.submissionTitle"

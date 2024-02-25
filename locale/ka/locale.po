@@ -46,7 +46,7 @@ msgstr "თარიღი აღიარებულია"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "დასრულების თარიღი"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "თარიღი შეხსენებულია"
 
 msgid "plugins.reports.reviews.reviewOverdue"

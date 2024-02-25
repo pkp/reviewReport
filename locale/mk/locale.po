@@ -23,7 +23,7 @@ msgstr "Денови по истечен рок на одговор"
 msgid "plugins.reports.reviews.reviewOverdue"
 msgstr "Денови по истечен рок на рецензија"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Датум на потсетување"
 
 msgid "plugins.reports.reviews.dateCompleted"
