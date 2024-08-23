@@ -1,7 +1,8 @@
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-11-24 15:53+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2024-07-28 11:40+0000\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/plugins/"
 "review-report-plugin/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -9,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "plugins.reports.reviews.comments"
 msgstr "Commentaires sur la soumission"
@@ -30,7 +31,7 @@ msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Date de complétion"
 
 msgid "plugins.reports.reviews.dateAcknowledged"
-msgstr "Date de confirmation"
+msgstr "Date d'accusé de réception"
 
 msgid "plugins.reports.reviews.dateConfirmed"
 msgstr "Date de confirmation"
