@@ -44,7 +44,7 @@ msgstr "Дата на препотвърждаване"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Дата на завършване"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Дата на напомняне"
 
 msgid "plugins.reports.reviews.reviewOverdue"

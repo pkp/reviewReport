@@ -44,8 +44,17 @@ msgstr "Date Acknowledged"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Date Completed"
 
-msgid "plugins.reports.reviews.dateReminded"
-msgstr "Date Reminded"
+msgid "plugins.reports.reviews.dateInviteReminded"
+msgstr "Date Invite Reminded"
+
+msgid "plugins.reports.reviews.countInviteReminder"
+msgstr "Invite Reminder Count"
+
+msgid "plugins.reports.reviews.dateSubmitReminded"
+msgstr "Date Submit Reminded"
+
+msgid "plugins.reports.reviews.countSubmitReminder"
+msgstr "Submit Reminder Count"
 
 msgid "plugins.reports.reviews.reviewOverdue"
 msgstr "Review Overdue Days"

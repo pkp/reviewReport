@@ -45,7 +45,7 @@ msgstr "Ημερομηνία παραλαβής"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Ημερονημία ολοκλήρωσης"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Ημερομηνία υπενθύμισης"
 
 msgid "plugins.reports.reviews.reviewOverdue"

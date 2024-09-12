@@ -25,7 +25,7 @@ msgstr "Արձագանքի ժամկետանց օրեր"
 msgid "plugins.reports.reviews.reviewOverdue"
 msgstr "Գրախոսման ժամկետանց օրեր"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Հիշեցման ամսաթիվը"
 
 msgid "plugins.reports.reviews.dateCompleted"

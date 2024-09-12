@@ -45,7 +45,7 @@ msgstr "Data confermata"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Data di completmaneto"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Data del promemoria"
 
 msgid "plugins.reports.reviews.recommendation"

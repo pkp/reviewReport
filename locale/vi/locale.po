@@ -23,7 +23,7 @@ msgstr "Ngày quá hạn phản hồi"
 msgid "plugins.reports.reviews.reviewOverdue"
 msgstr "Ngày quá hạn phản biện"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Ngày nhắc nhở"
 
 msgid "plugins.reports.reviews.dateCompleted"

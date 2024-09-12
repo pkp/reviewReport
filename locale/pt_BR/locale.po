@@ -41,7 +41,7 @@ msgstr "Data de Confirmação da disponibilidade"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Conclusão"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Lembrete"
 
 msgid "plugins.reports.reviews.reviewOverdue"

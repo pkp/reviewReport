@@ -41,7 +41,7 @@ msgstr "Datum odsouhlasení"
 msgid "plugins.reports.reviews.dateCompleted"
 msgstr "Datum dokončení"
 
-msgid "plugins.reports.reviews.dateReminded"
+msgid "plugins.reports.reviews.dateSubmitReminded"
 msgstr "Datum připomenutí"
 
 msgid "plugins.reports.reviews.comments"
