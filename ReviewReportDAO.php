@@ -23,7 +23,6 @@ use APP\facades\Repo;
 use PKP\db\DAO;
 use PKP\facades\Locale;
 use PKP\submission\SubmissionComment;
-use PKP\user\InterestManager;
 
 class ReviewReportDAO extends DAO
 {
@@ -111,7 +110,6 @@ class ReviewReportDAO extends DAO
             ]
         );
 
-        $interestManager = new InterestManager();
         $assignedReviewerIds = $this->retrieve(
             'SELECT r.reviewer_id
             FROM review_assignments r
@@ -124,7 +122,7 @@ class ReviewReportDAO extends DAO
         foreach ($assignedReviewerIds as $row) {
             if (!array_key_exists($row->reviewer_id, $interests)) {
                 $user = Repo::user()->get($row->reviewer_id, true);
-                $reviewerInterests = $interestManager->getInterestsString($user);
+                $reviewerInterests = Repo::userInterest()->getInterestsString($user);
                 if (!empty($reviewerInterests)) {
                     $interests[$row->reviewer_id] = $reviewerInterests;
                 }
