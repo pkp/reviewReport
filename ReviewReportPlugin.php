@@ -27,6 +27,7 @@ use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\recommendation\RecommendationOption;
 use PKP\workflow\WorkflowStageDAO;
 
 class ReviewReportPlugin extends ReportPlugin
@@ -95,7 +96,7 @@ class ReviewReportPlugin extends ReportPlugin
             }
         }
 
-        $recommendations = Repo::reviewerRecommendation()->getOptions($context, null);
+        $recommendations = Repo::reviewerRecommendation()->getOptions($context, RecommendationOption::ALL);
 
         $considerations = [
             ReviewAssignment::REVIEW_ASSIGNMENT_NEW => 'plugins.reports.reviews.considered.new',
