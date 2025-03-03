@@ -19,10 +19,11 @@
 namespace APP\plugins\reports\reviewReport;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use APP\facades\Repo;
 use PKP\plugins\ReportPlugin;
+use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -94,14 +95,7 @@ class ReviewReportPlugin extends ReportPlugin
             }
         }
 
-        $recommendations = [
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT => 'reviewer.article.decision.accept',
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.article.decision.pendingRevisions',
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE => 'reviewer.article.decision.resubmitHere',
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE => 'reviewer.article.decision.resubmitElsewhere',
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE => 'reviewer.article.decision.decline',
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS => 'reviewer.article.decision.seeComments'
-        ];
+        $recommendations = Repo::reviewerRecommendation()->getOptions($context, null);
 
         $considerations = [
             ReviewAssignment::REVIEW_ASSIGNMENT_NEW => 'plugins.reports.reviews.considered.new',
@@ -183,7 +177,7 @@ class ReviewReportPlugin extends ReportPlugin
                         if ($reviewAssignment->getDateCompleted() != null && ($reviewFormId = $reviewAssignment->getReviewFormId())) {
                             $reviewId = $reviewAssignment->getId();
                             $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId);
-                            while ($reviewFormElement = $reviewFormElements->next()) {
+                            while ($reviewFormElement = $reviewFormElements->next()) { /** @var ReviewFormElement $reviewFormElement */
                                 if (!$reviewFormElement->getIncluded()) {
                                     continue;
                                 }
