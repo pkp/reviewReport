@@ -76,7 +76,7 @@ class ReviewReportDAO extends DAO
                 (r.declined=1) AS declined,
                 r.considered AS considered,
                 (r.cancelled=1) AS cancelled,
-                r.recommendation AS recommendation
+                r.recommendation_id AS recommendation_id
             FROM review_assignments r
                 LEFT JOIN submissions a ON r.submission_id = a.submission_id
                 LEFT JOIN publications p ON a.current_publication_id = p.publication_id

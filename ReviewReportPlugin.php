@@ -131,7 +131,7 @@ class ReviewReportPlugin extends ReportPlugin
             'overdue' => __('plugins.reports.reviews.reviewOverdue'),
             'declined' => __('submissions.declined'),
             'cancelled' => __('common.cancelled'),
-            'recommendation' => __('plugins.reports.reviews.recommendation'),
+            'recommendation_id' => __('plugins.reports.reviews.recommendation'),
             'comments' => __('plugins.reports.reviews.comments')
         ];
 
@@ -168,8 +168,8 @@ class ReviewReportPlugin extends ReportPlugin
                     case 'considered':
                         $columns[$index] = isset($considerations[$row->$index]) ? __($considerations[$row->$index]) : '';
                         break;
-                    case 'recommendation':
-                        $columns[$index] = isset($recommendations[$row->$index]) ? __($recommendations[$row->$index]) : '';
+                    case 'recommendation_id':
+                        $columns[$index] = isset($row->$index) ? $recommendations[$row->$index] : '';
                         break;
                     case 'comments':
                         $reviewAssignment = Repo::reviewAssignment()->get($row->review_id, $row->submission_id);
