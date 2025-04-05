@@ -96,7 +96,7 @@ class ReviewReportPlugin extends ReportPlugin
             }
         }
 
-        $recommendations = Repo::reviewerRecommendation()->getOptions($context, RecommendationOption::ALL);
+        $recommendations = Repo::reviewerRecommendation()->getRecommendationOptions($context, RecommendationOption::ALL);
 
         $considerations = [
             ReviewAssignment::REVIEW_ASSIGNMENT_NEW => 'plugins.reports.reviews.considered.new',
@@ -131,7 +131,7 @@ class ReviewReportPlugin extends ReportPlugin
             'overdue' => __('plugins.reports.reviews.reviewOverdue'),
             'declined' => __('submissions.declined'),
             'cancelled' => __('common.cancelled'),
-            'recommendation_id' => __('plugins.reports.reviews.recommendation'),
+            'reviewer_recommendation_id' => __('plugins.reports.reviews.recommendation'),
             'comments' => __('plugins.reports.reviews.comments')
         ];
 
@@ -168,7 +168,7 @@ class ReviewReportPlugin extends ReportPlugin
                     case 'considered':
                         $columns[$index] = isset($considerations[$row->$index]) ? __($considerations[$row->$index]) : '';
                         break;
-                    case 'recommendation_id':
+                    case 'reviewer_recommendation_id':
                         $columns[$index] = isset($row->$index) ? $recommendations[$row->$index] : '';
                         break;
                     case 'comments':
