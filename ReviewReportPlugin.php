@@ -19,13 +19,15 @@
 namespace APP\plugins\reports\reviewReport;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use APP\facades\Repo;
 use PKP\plugins\ReportPlugin;
+use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\recommendation\RecommendationOption;
 use PKP\workflow\WorkflowStageDAO;
 
 class ReviewReportPlugin extends ReportPlugin
@@ -94,14 +96,7 @@ class ReviewReportPlugin extends ReportPlugin
             }
         }
 
-        $recommendations = [
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT => 'reviewer.article.decision.accept',
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS => 'reviewer.article.decision.pendingRevisions',
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE => 'reviewer.article.decision.resubmitHere',
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE => 'reviewer.article.decision.resubmitElsewhere',
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE => 'reviewer.article.decision.decline',
-            ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS => 'reviewer.article.decision.seeComments'
-        ];
+        $recommendations = Repo::reviewerRecommendation()->getRecommendationOptions($context, RecommendationOption::ALL);
 
         $considerations = [
             ReviewAssignment::REVIEW_ASSIGNMENT_NEW => 'plugins.reports.reviews.considered.new',
@@ -136,7 +131,7 @@ class ReviewReportPlugin extends ReportPlugin
             'overdue' => __('plugins.reports.reviews.reviewOverdue'),
             'declined' => __('submissions.declined'),
             'cancelled' => __('common.cancelled'),
-            'recommendation' => __('plugins.reports.reviews.recommendation'),
+            'reviewer_recommendation_id' => __('plugins.reports.reviews.recommendation'),
             'comments' => __('plugins.reports.reviews.comments')
         ];
 
@@ -173,8 +168,8 @@ class ReviewReportPlugin extends ReportPlugin
                     case 'considered':
                         $columns[$index] = isset($considerations[$row->$index]) ? __($considerations[$row->$index]) : '';
                         break;
-                    case 'recommendation':
-                        $columns[$index] = isset($recommendations[$row->$index]) ? __($recommendations[$row->$index]) : '';
+                    case 'reviewer_recommendation_id':
+                        $columns[$index] = isset($row->$index) ? $recommendations[$row->$index] : '';
                         break;
                     case 'comments':
                         $reviewAssignment = Repo::reviewAssignment()->get($row->review_id, $row->submission_id);
@@ -183,7 +178,7 @@ class ReviewReportPlugin extends ReportPlugin
                         if ($reviewAssignment->getDateCompleted() != null && ($reviewFormId = $reviewAssignment->getReviewFormId())) {
                             $reviewId = $reviewAssignment->getId();
                             $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewFormId);
-                            while ($reviewFormElement = $reviewFormElements->next()) {
+                            while ($reviewFormElement = $reviewFormElements->next()) { /** @var ReviewFormElement $reviewFormElement */
                                 if (!$reviewFormElement->getIncluded()) {
                                     continue;
                                 }
