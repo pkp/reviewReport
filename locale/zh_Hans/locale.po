@@ -1,15 +1,19 @@
+# wenshao521！ <wainixueer3334@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-11-19T11:06:14+00:00\n"
+"PO-Revision-Date: 2025-05-14 08:50+0000\n"
+"Last-Translator: wenshao521！ <wainixueer3334@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
+"plugins/review-report-plugin/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T11:06:14+00:00\n"
-"PO-Revision-Date: 2019-11-19T11:06:14+00:00\n"
-"Language: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "plugins.reports.reviews.displayName"
 msgstr "审查报告(Review Report)"
@@ -40,3 +44,39 @@ msgstr "完成日期(Date Completed)"
 
 msgid "plugins.reports.reviews.dateReminded"
 msgstr "提醒日期(Date Reminded)"
+
+msgid "plugins.reports.reviews.considered.considered"
+msgstr "已考虑"
+
+msgid "plugins.reports.reviews.considered.reconsidered"
+msgstr "重新审议"
+
+msgid "plugins.reports.reviews.submissionTitle"
+msgstr "提交标题"
+
+msgid "plugins.reports.reviews.submissionId"
+msgstr "提交编号"
+
+msgid "plugins.reports.reviews.dateAcknowledged"
+msgstr "确认日期"
+
+msgid "plugins.reports.reviews.reviewOverdue"
+msgstr "审稿超期天数"
+
+msgid "plugins.reports.reviews.responseOverdue"
+msgstr "回复超期天数"
+
+msgid "plugins.reports.reviews.recommendation"
+msgstr "推荐"
+
+msgid "plugins.reports.reviews.comments"
+msgstr "关于提交的评论"
+
+msgid "plugins.reports.reviews.considered"
+msgstr "考虑"
+
+msgid "plugins.reports.reviews.considered.new"
+msgstr "从不"
+
+msgid "plugins.reports.reviews.considered.unconsidered"
+msgstr "未被考虑"
