@@ -1,7 +1,7 @@
 # Oihan Odriozola <oodriozola@euskaltzaindia.eus>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-01 08:51+0000\n"
+"PO-Revision-Date: 2025-10-02 21:27+0000\n"
 "Last-Translator: Oihan Odriozola <oodriozola@euskaltzaindia.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/plugins/"
 "review-report-plugin/eu/>\n"
@@ -62,7 +62,6 @@ msgstr "Gomendioa"
 msgid "plugins.reports.reviews.comments"
 msgstr "Bidalketari buruzko iruzkinak"
 
-#, fuzzy
 msgid "plugins.reports.reviews.considered"
 msgstr "Kontuan hartu beharrekoa"
 
