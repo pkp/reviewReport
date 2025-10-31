@@ -1,11 +1,12 @@
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024.
+# Express2120+ <mirouxmmp111@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-07-28 11:40+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2025-08-19 07:32+0000\n"
+"Last-Translator: Express2120+ <mirouxmmp111@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/plugins/"
-"review-report-plugin/fr_FR/>\n"
-"Language: fr_FR\n"
+"review-report-plugin/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,3 +62,18 @@ msgstr ""
 
 msgid "plugins.reports.reviews.displayName"
 msgstr "Rapport d'évaluation"
+
+msgid "plugins.reports.reviews.considered.considered"
+msgstr "Considéré"
+
+msgid "plugins.reports.reviews.considered.unconsidered"
+msgstr "Non pris en compte"
+
+msgid "plugins.reports.reviews.considered"
+msgstr "Considération"
+
+msgid "plugins.reports.reviews.considered.new"
+msgstr "Jamais"
+
+msgid "plugins.reports.reviews.considered.reconsidered"
+msgstr "Reconsidéré"
