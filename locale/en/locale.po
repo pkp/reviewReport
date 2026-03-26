@@ -59,22 +59,17 @@ msgstr "Recommendation"
 msgid "plugins.reports.reviews.comments"
 msgstr "Comments On Submission"
 
-#, fuzzy
 msgid "plugins.reports.reviews.considered"
 msgstr "Consideration"
 
-#, fuzzy
 msgid "plugins.reports.reviews.considered.new"
 msgstr "Never"
 
-#, fuzzy
 msgid "plugins.reports.reviews.considered.considered"
 msgstr "Considered"
 
-#, fuzzy
 msgid "plugins.reports.reviews.considered.unconsidered"
 msgstr "Unconsidered"
 
-#, fuzzy
 msgid "plugins.reports.reviews.considered.reconsidered"
 msgstr "Reconsidered"
