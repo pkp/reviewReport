@@ -1,15 +1,16 @@
+# Mirko Spiroski <mspiroski@id-press.eu>, 2026.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-02-11 14:53+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"PO-Revision-Date: 2026-04-22 19:25+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/plugins/"
-"review-report-plugin/mk_MK/>\n"
-"Language: mk_MK\n"
+"review-report-plugin/mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "plugins.reports.reviews.comments"
 msgstr "Забелешки за поднесок"
@@ -60,3 +61,18 @@ msgstr ""
 
 msgid "plugins.reports.reviews.displayName"
 msgstr "Извештај за рецензии"
+
+msgid "plugins.reports.reviews.considered.considered"
+msgstr "Разгледувано"
+
+msgid "plugins.reports.reviews.considered"
+msgstr "Разгледување"
+
+msgid "plugins.reports.reviews.considered.new"
+msgstr "Никогаш"
+
+msgid "plugins.reports.reviews.considered.unconsidered"
+msgstr "Неразгледано"
+
+msgid "plugins.reports.reviews.considered.reconsidered"
+msgstr "Преиспитано"
