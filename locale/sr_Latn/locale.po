@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T11:06:13+00:00\n"
-"PO-Revision-Date: 2026-05-25 12:35+0000\n"
+"PO-Revision-Date: 2026-05-25 23:44+0000\n"
 "Last-Translator: lena bojcic <lenabojcicck@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://translate.pkp.sfu.ca/projects/plugins/"
 "review-report-plugin/sr_Latn/>\n"
@@ -51,3 +51,33 @@ msgstr "Naslov rada"
 
 msgid "plugins.reports.reviews.submissionId"
 msgstr "ID rada"
+
+msgid "plugins.reports.reviews.dateAcknowledged"
+msgstr "Datum potvrđen"
+
+msgid "plugins.reports.reviews.reviewOverdue"
+msgstr "Kašnjenje recenzije (u danima)"
+
+msgid "plugins.reports.reviews.responseOverdue"
+msgstr "Kašnjenje odgovora (u danima)"
+
+msgid "plugins.reports.reviews.recommendation"
+msgstr "Preporuka"
+
+msgid "plugins.reports.reviews.considered"
+msgstr "Razmatranje"
+
+msgid "plugins.reports.reviews.considered.new"
+msgstr "Nikad"
+
+msgid "plugins.reports.reviews.considered.considered"
+msgstr "Razmatrano"
+
+msgid "plugins.reports.reviews.considered.unconsidered"
+msgstr "Nije razmatrano"
+
+msgid "plugins.reports.reviews.considered.reconsidered"
+msgstr "Ponovo razmatrano"
+
+msgid "plugins.reports.reviews.comments"
+msgstr "Komentari na rad"
