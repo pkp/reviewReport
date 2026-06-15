@@ -1,10 +1,11 @@
+# Anne-Inger <annrag@oslomet.no>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T11:06:13+00:00\n"
-"PO-Revision-Date: 2021-01-28 22:54+0000\n"
-"Last-Translator: Tormod Strømme <tormod.stromme@uib.no>\n"
+"PO-Revision-Date: 2026-06-15 12:39+0000\n"
+"Last-Translator: Anne-Inger <annrag@oslomet.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "plugins/review-report-plugin/nb_NO/>\n"
 "Language: nb_NO\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "plugins.reports.reviews.displayName"
 msgstr "Rapport over fagfellevurderingsoppdrag"
@@ -66,3 +67,20 @@ msgstr "Innleveringens ID"
 
 msgid "plugins.reports.reviews.submissionTitle"
 msgstr "Innleveringens tittel"
+
+#, fuzzy
+msgid "plugins.reports.reviews.considered"
+msgstr "Vurdering"
+
+msgid "plugins.reports.reviews.considered.considered"
+msgstr "Vurdert"
+
+#, fuzzy
+msgid "plugins.reports.reviews.considered.unconsidered"
+msgstr "Ikke tatt i betraktning"
+
+msgid "plugins.reports.reviews.considered.new"
+msgstr "Aldri"
+
+msgid "plugins.reports.reviews.considered.reconsidered"
+msgstr "Revurdert"
