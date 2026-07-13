@@ -1,17 +1,13 @@
 <?php
 
 /**
- * @file ReviewReportPlugin.php
+ * @file plugins/reports/reviewReport/ReviewReportPlugin.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewReportPlugin
- *
- * @ingroup plugins_reports_review
- *
- * @see ReviewReportDAO
  *
  * @brief Review report plugin
  */
@@ -29,6 +25,7 @@ use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\recommendation\RecommendationOption;
 use PKP\workflow\WorkflowStageDAO;
+use stdClass;
 
 class ReviewReportPlugin extends ReportPlugin
 {
@@ -145,7 +142,7 @@ class ReviewReportPlugin extends ReportPlugin
         /** @var ReviewFormElementDAO */
         $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
 
-        foreach ($reviewsIterator as $row) {
+        foreach ($reviewsIterator as $row) { /** @var stdClass $row */
             if (substr($row->date_response_due, 11) === '00:00:00') {
                 $row->date_response_due = substr($row->date_response_due, 0, 11) . '23:59:59';
             }
@@ -222,7 +219,7 @@ class ReviewReportPlugin extends ReportPlugin
         fclose($fp);
     }
 
-    public function getOverdueDays($row)
+    public function getOverdueDays(stdClass $row): array
     {
         $responseDueTime = strtotime($row->date_response_due);
         $reviewDueTime = strtotime($row->date_due);

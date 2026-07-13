@@ -3,15 +3,11 @@
 /**
  * @file plugins/reports/reviewReport/ReviewReportDAO.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewReportDAO
- *
- * @ingroup plugins_reports_review
- *
- * @see ReviewReportPlugin
  *
  * @brief Review report DAO
  */
@@ -28,12 +24,8 @@ class ReviewReportDAO extends DAO
 {
     /**
      * Get the review report data.
-     *
-     * @param int $contextId Context ID
-     *
-     * @return array
      */
-    public function getReviewReport($contextId)
+    public function getReviewReport(int $contextId): array
     {
         $locale = Locale::getLocale();
 
@@ -118,6 +110,7 @@ class ReviewReportDAO extends DAO
             ORDER BY r.reviewer_id',
             [(int) $contextId]
         );
+
         $interests = [];
         foreach ($assignedReviewerIds as $row) {
             if (!array_key_exists($row->reviewer_id, $interests)) {
@@ -128,6 +121,7 @@ class ReviewReportDAO extends DAO
                 }
             }
         }
+        
         return [$commentsReturner, $reviewsReturner, $interests];
     }
 }
